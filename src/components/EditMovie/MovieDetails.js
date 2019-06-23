@@ -30,7 +30,7 @@ const MovieDetails = (props) => {
                 </center>
             </Card>
             <Card className="movie-details updated-date-field">
-                <InputLabel style={{marginRight: '20px'}} htmlFor="updated-date-picker">Updated Date</InputLabel>
+                <InputLabel style={{marginRight: '20px'}} htmlFor="updated-date-picker">Updated</InputLabel>
                 <DatePicker
                     id="updated-date-picker"
                     style={{width: '75%'}}
