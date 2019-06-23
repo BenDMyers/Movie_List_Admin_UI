@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Button} from 'semantic-ui-react';
 import MaterialButton from '@material-ui/core/Button';
@@ -14,7 +15,7 @@ const EditButton = (props) => {
     let buttonProps = {variant: 'contained', color: 'primary', onClick: handleClick};
 
     return (
-        <Button as='div' className="edit-button">
+        <Button as={Link} to={`/edit/${props.movie}`} className="edit-button">
             <MaterialButton {...buttonProps}>
                 Edit
             </MaterialButton>

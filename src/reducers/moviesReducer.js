@@ -9,7 +9,6 @@ const DEFAULT_STATE = {
 export const moviesReducer = (state=DEFAULT_STATE, action) => {
     switch(action.type) {
         case GET_MOVIES:
-            console.log(action.payload.data)
             if(action.payload.data) {
                 action.meta.triggerSort && action.payload.data.sort(byVotesThenTitle.asc);
                 action.meta.maintainOrder && action.payload.data.sort(byPreviousOrder(state.recommended).asc);

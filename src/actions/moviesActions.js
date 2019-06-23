@@ -11,7 +11,6 @@ const BASE_URL = apiURL;
 
 export const getMovies = (sortStrategy) => (dispatch, getState) => {
     const payload = axios.get(`${BASE_URL}/movies/`);
-    console.log(`${BASE_URL}/movies/`)
     let meta = {};
     sortStrategy && (meta[sortStrategy] = true);
     dispatch({type: GET_MOVIES, payload, meta});

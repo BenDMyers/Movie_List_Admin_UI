@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {getMovies, TRIGGER_SORT} from './actions/moviesActions';
@@ -20,7 +21,14 @@ class App extends Component {
                     <HeadingBar as="h2" backgroundColor="#ffe01b" style={{color: 'black', marginBottom: '20px'}}>
                         Manage movies
                     </HeadingBar>
-                    <MovieList list="recommended" />
+                    <Switch>
+                        <Route exact path="/">
+                            <MovieList />
+                        </Route>
+                        <Route exact path="/edit/:movieId">
+                            <div>You're editing a movie!</div>
+                        </Route>
+                    </Switch>
                 </div>
             </div>
         );
