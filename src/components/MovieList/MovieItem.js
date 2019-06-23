@@ -6,7 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 import './watchedMovieRibbon.styles.css';
 import {tmdbKey} from '../../config/keys';
-import VoteButton from './VoteButton';
+import EditButton from './EditButton';
 import WatchedMovieRibbon from './WatchedMovieRibbon';
 
 const cardActionsStyles = {
@@ -27,13 +27,6 @@ const getReceivedVotes = (numVotes, list) => {
 
 const MovieItem = (props) => {
     const title = `${props.title} (${props.year})`;
-
-    let votes;
-    if(props.list === 'recommended') {
-        votes = <VoteButton movie={props._id} />;
-    } else {
-        votes = getReceivedVotes(props.numVotes, props.list);
-    }
 
     const posterProps = {
         className: 'card-movie-poster',
@@ -64,7 +57,7 @@ const MovieItem = (props) => {
                     </div>
                 </CardContent>
                 <CardActions style={cardActionsStyles}>
-                    {votes}
+                    <EditButton movie={props._id} />
                 </CardActions>
             </Card>
         </div>
