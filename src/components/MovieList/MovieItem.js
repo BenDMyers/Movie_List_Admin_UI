@@ -37,15 +37,19 @@ const MovieItem = (props) => {
                     <CardMedia {...posterProps} />
                     {props.list && <MovieListRibbon list={props.list} describes={props._id} />}
                 </div>
-                <span className="screenreader">{title}</span>
-                <CardContent aria-hidden="true" className="card-movie">
-                    <div className="card-movie-title">
-                        {props.title}
-                    </div>
-                    <div aria-hidden="true" className="card-movie-year">
-                        {props.year}
-                    </div>
-                </CardContent>
+                {props.showTitle && (
+                    <>
+                        <span className="screenreader">{title}</span>
+                        <CardContent aria-hidden="true" className="card-movie">
+                            <div className="card-movie-title">
+                                {props.title}
+                            </div>
+                            <div aria-hidden="true" className="card-movie-year">
+                                {props.year}
+                            </div>
+                        </CardContent>
+                    </>
+                )}
                 {props.showEditButton && (
                     <CardActions style={cardActionsStyles}>
                         <EditButton movie={props._id} />
@@ -57,7 +61,8 @@ const MovieItem = (props) => {
 };
 
 MovieItem.defaultProps = {
-    showEditButton: true
+    showEditButton: true,
+    showTitle: true
 }
 
 export default MovieItem;

@@ -1,0 +1,38 @@
+.dark-mode div.movie-details {
+    background-color: #444;
+}
+
+.list-field, .updated-date-field {
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 20px auto;
+}
+
+.movie-details label {
+    font-weight: 700;
+    color: #555;
+    transition: color 0.5s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dark-mode .movie-details label {
+    color: #999;
+}
+
+#select-list, #updated-date-helper {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 140%;
+    font-style: italic;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: color 0.5s ease;
+}
+
+.dark-mode #select-list, .dark-mode #updated-date-helper {
+    color: #ccc;
+}
+
+li[role="option"] {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700;
+}

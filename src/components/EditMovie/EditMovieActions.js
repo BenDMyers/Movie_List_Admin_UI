@@ -14,18 +14,26 @@ const EditMovieActions = (props) => {
     }
 
     return (
-        <Grid>
-            <Link to="/" className="edit-movie-button cancel-button">
-                <MaterialButton variant="contained">
-                    Cancel
+        <Grid container spacing={24} style={{textAlign: 'center'}}>
+            <Grid item xs={3} aria-hidden="true" />
+            <Grid item xs={2}>
+                <Link to="/" className="edit-movie-button cancel-button">
+                    <MaterialButton variant="contained">
+                        Cancel
+                    </MaterialButton>
+                </Link>
+            </Grid>
+            <Grid item xs={2}>
+                <MaterialButton variant="contained" color="primary" className="edit-movie-button save-button">
+                    Save
                 </MaterialButton>
-            </Link>
-            <MaterialButton variant="contained" color="primary" className="edit-movie-button save-button">
-                Save
-            </MaterialButton>
-            <MaterialButton onClick={handleDeleteClick} variant="contained" color="secondary" className="edit-movie-button delete-button">
-                Delete
-            </MaterialButton>
+            </Grid>
+            <Grid item xs={2}>
+                <MaterialButton onClick={handleDeleteClick} variant="contained" color="secondary" className="edit-movie-button delete-button">
+                    Delete
+                </MaterialButton>
+            </Grid>
+            <Grid item xs={3} aria-hidden="true" />
         </Grid>
     );
 };
