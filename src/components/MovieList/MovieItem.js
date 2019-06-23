@@ -4,26 +4,16 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
-import './watchedMovieRibbon.styles.css';
+import './MovieListRibbon.styles.css';
 import {tmdbKey} from '../../config/keys';
 import EditButton from './EditButton';
-import WatchedMovieRibbon from './WatchedMovieRibbon';
+import MovieListRibbon from './MovieListRibbon';
 
 const cardActionsStyles = {
     justifyContent: 'center',
     paddingTop: 0,
     paddingBottom: '16px'
 };
-
-const getReceivedVotes = (numVotes, list) => {
-    let voteOrVotes = numVotes === 1 ? 'vote' : 'votes';
-    return (
-        <>
-            <span className="screenreader">Received {numVotes} {voteOrVotes}</span>
-            <span aria-hidden="true" className="received-votes">Received <span className={`received-votes-${list}`}>{numVotes} {voteOrVotes}</span></span>
-        </>
-    );
-}
 
 const MovieItem = (props) => {
     const title = `${props.title} (${props.year})`;
@@ -45,7 +35,7 @@ const MovieItem = (props) => {
             <Card id={`movie-${props._id}`} className="movie-item-card">
                 <div className="movie-poster-container">
                     <CardMedia {...posterProps} />
-                    {props.list === 'watched' && <WatchedMovieRibbon date={props.updatedDate} describes={props._id} />}
+                    <MovieListRibbon list={props.list} describes={props._id} />
                 </div>
                 <span className="screenreader">{title}</span>
                 <CardContent aria-hidden="true" className="card-movie">
