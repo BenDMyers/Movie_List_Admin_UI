@@ -24,7 +24,7 @@ const EditMovieActions = (props) => {
                 </Link>
             </Grid>
             <Grid item xs={2}>
-                <MaterialButton variant="contained" color="primary" className="edit-movie-button save-button">
+                <MaterialButton onClick={props.handleSaveClick} variant="contained" color="primary" className="edit-movie-button save-button">
                     Save
                 </MaterialButton>
             </Grid>

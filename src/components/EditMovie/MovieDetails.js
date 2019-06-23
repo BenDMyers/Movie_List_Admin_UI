@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import Card from '@material-ui/core/Card';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -7,21 +8,19 @@ import Select from '@material-ui/core/Select';
 import {DatePicker} from 'material-ui-pickers';
 
 import './cardFields.styles.css';
+import {updateMovie} from '../../actions/moviesActions';
 
 const MovieDetails = (props) => {
-    const [list, setList] = useState(props.list);
     const handleListChange = (event) => {
-        setList(event.target.value)
+        props.setList(event.target.value)
     }
-
-    const [updatedDate, setUpdatedDate] = useState(Date.now());
 
     return (
         <form>
             <Card className="movie-details list-field">
                 <center>
                     <InputLabel style={{marginRight: '20px'}} htmlFor="list-helper">List</InputLabel>
-                    <Select value={list} onChange={handleListChange} input={<Input style={{width: '75%'}} name="list" id="list-helper" />}>
+                    <Select value={props.list} onChange={handleListChange} input={<Input style={{width: '75%'}} name="list" id="list-helper" />}>
                         <MenuItem value="recommended">Recommended</MenuItem>
                         <MenuItem value="watched">Watched</MenuItem>
                         <MenuItem value="alreadyWatched">Already Watched</MenuItem>
@@ -34,8 +33,8 @@ const MovieDetails = (props) => {
                 <DatePicker
                     id="updated-date-picker"
                     style={{width: '75%'}}
-                    value={updatedDate}
-                    onChange={setUpdatedDate}
+                    value={props.updatedDate}
+                    onChange={props.setUpdatedDate}
                     format="MMM DD, YYYY"
                 />
             </Card>
@@ -43,4 +42,4 @@ const MovieDetails = (props) => {
     );
 };
 
-export default MovieDetails;
+export default connect(null, {updateMovie})(MovieDetails);

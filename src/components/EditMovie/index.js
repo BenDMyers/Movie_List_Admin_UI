@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
@@ -6,9 +6,10 @@ import MomentUtils from '@date-io/moment';
 import Grid from '@material-ui/core/Grid';
 import withWidth from '@material-ui/core/withWidth';
 import {MuiPickersUtilsProvider} from 'material-ui-pickers';
+import moment from 'moment';
 
 import './editMovieButtons.styles.css';
-import {getMovies} from '../../actions/moviesActions';
+import {getMovies, updateMovie} from '../../actions/moviesActions';
 import EditMovieActions from './EditMovieActions';
 import MovieDetails from './MovieDetails';
 import MovieDetailsPoster from './MovieDetailsPoster';
@@ -38,7 +39,20 @@ const getStyle = (width) => {
 };
 
 const EditMovie = (props) => {
-    console.log(props.movie)
+    const [list, setList] = useState(props.movie.list);
+    if(!list && props.movie.list) {
+        setList(props.movie.list);
+    }
+
+    const [updatedDate, setUpdatedDate] = useState(Date.now());
+
+    const handleSaveClick = () => {
+        let date = new Date(moment(updatedDate).toISOString());
+        props.updateMovie(props.movie._id, {list, updatedDate: date}, () => {
+            props.history.push('/')
+        });
+    }
+
     useEffect(() => {
         if(props.movie === DEFAULT_MOVIE) {
             props.getMovies();
@@ -55,13 +69,13 @@ const EditMovie = (props) => {
                     <MovieDetailsTitleCard {...props.movie} />
                     {props.movie.list && (
                         <MuiPickersUtilsProvider utils={MomentUtils}>
-                            <MovieDetails {...props.movie} />
+                            <MovieDetails {...props.movie} list={list} setList={setList} updatedDate={updatedDate} setUpdatedDate={setUpdatedDate} />
                         </MuiPickersUtilsProvider>
                     )}
                 </Grid>
             </Grid>
 
-            <EditMovieActions movie={props.movie} />
+            <EditMovieActions movie={props.movie} handleSaveClick={handleSaveClick} />
         </>
     );
 };
@@ -74,5 +88,5 @@ const mapStateToProps = (state, ownProps) => {
 export default compose(
     withWidth(),
     withRouter,
-    connect(mapStateToProps, {getMovies})
+    connect(mapStateToProps, {getMovies, updateMovie})
 )(EditMovie);
