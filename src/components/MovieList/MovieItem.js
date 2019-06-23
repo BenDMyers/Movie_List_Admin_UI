@@ -35,7 +35,7 @@ const MovieItem = (props) => {
             <Card id={`movie-${props._id}`} className="movie-item-card">
                 <div className="movie-poster-container">
                     <CardMedia {...posterProps} />
-                    <MovieListRibbon list={props.list} describes={props._id} />
+                    {props.list && <MovieListRibbon list={props.list} describes={props._id} />}
                 </div>
                 <span className="screenreader">{title}</span>
                 <CardContent aria-hidden="true" className="card-movie">

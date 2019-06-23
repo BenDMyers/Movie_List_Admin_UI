@@ -1,16 +1,15 @@
 import React, {useEffect} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
-import MaterialButton from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 import './editMovieButtons.styles.css';
 import {getMovies} from '../../actions/moviesActions';
 import MovieItem from '../MovieList/MovieItem';
+import EditMovieActions from './EditMovieActions';
 
 const DEFAULT_MOVIE = {
-    list: 'recommended',
     posterProps: {
         src: 'placeholderPoster.png',
         alt: 'Placeholder for poster'
@@ -26,24 +25,14 @@ const EditMovie = (props) => {
     }, [props.movie]);
 
     return (
-        <>
-            <Grid item xs={8} sm={4} md={2} style={{padding: '20px'}}>
-                <MovieItem {...props.movie} showEditButton={false} />
+        <div style={{width: '100%'}}>
+            <Grid container>
+                <Grid item xs={8} sm={4} md={2} style={{padding: '20px'}}>
+                    <MovieItem {...props.movie} showEditButton={false} />
+                </Grid>
             </Grid>
-            <Grid>
-                <Link to="/" className="edit-movie-button cancel-button">
-                    <MaterialButton variant="contained">
-                        Cancel
-                    </MaterialButton>
-                </Link>
-                <MaterialButton variant="contained" color="primary" className="edit-movie-button save-button">
-                    Save
-                </MaterialButton>
-                <MaterialButton variant="contained" color="secondary" className="edit-movie-button delete-button">
-                    Delete
-                </MaterialButton>
-            </Grid>
-        </>
+            <EditMovieActions />
+        </div>
     );
 };
 
