@@ -2,8 +2,9 @@ import axios from 'axios';
 
 import {RECOMMEND_MOVIE, RESOLVE_INFLIGHT_MOVIE, RESOLVE_INFLIGHT_UNVOTE, RESOLVE_INFLIGHT_VOTE, UNVOTE, VOTE} from '../actions/types';
 import {getMovies, TRIGGER_SORT, MAINTAIN_ORDER} from './moviesActions';
+import {apiURL} from '../config/keys';
 
-const BASE_URL = 'https://bdm-watchlist-api.herokuapp.com';
+const BASE_URL = apiURL;
 // const BASE_URL = 'http://localhost:4000';
 
 export const resolveInflightMovie = (id) => {

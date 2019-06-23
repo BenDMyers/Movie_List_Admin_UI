@@ -20,24 +20,11 @@ class App extends Component {
             <div>
                 <DarkModeToggle />
                 <HeadingBar as="h1">What Should Ben Watch Next?</HeadingBar>
-                <Search />
                 <div>
-                    <HeadingBar as="h2" backgroundColor="#3f51b5" style={{marginBottom: '20px'}}>
-                        Vote on movies
+                    <HeadingBar as="h2" backgroundColor="#ffe01b" style={{color: 'black'}}>
+                        Manage movies
                     </HeadingBar>
                     <MovieList list="recommended" />
-                </div>
-                <div>
-                    <HeadingBar as="h2" backgroundColor="#006200" style={{marginTop: '10px', marginBottom: '20px'}} subtitle="Thank you for your recommendations">
-                        Ben has now seen...
-                    </HeadingBar>
-                    <MovieList list="watched" comparator={byWatchedDate.desc} />
-                </div>
-                <div>
-                    <HeadingBar as="h2" backgroundColor="#9400d3" style={{marginTop: '10px', marginBottom: '20px'}} subtitle="But thank you anyways!">
-                        Ben has already watched...
-                    </HeadingBar>
-                    <MovieList list="alreadyWatched" comparator={byTitle.asc} />
                 </div>
             </div>
         );
