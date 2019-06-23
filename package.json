@@ -1,0 +1,46 @@
+{
+  "name": "bdm-watchlist-ui-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
+    "generate-comparators": "^1.0.0",
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-expand-animated": "^1.0.0",
+    "react-https-redirect": "^1.1.0",
+    "react-loading-overlay": "^1.0.1",
+    "react-odometerjs": "^2.1.1",
+    "react-redux": "^7.0.2",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-localstorage-simple": "^2.1.6",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.86.0",
+    "serve": "^11.0.0",
+    "use-dark-mode": "^2.3.1",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
