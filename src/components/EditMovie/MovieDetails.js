@@ -4,17 +4,17 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import TextField from '@material-ui/core/TextField';
+import {DatePicker} from 'material-ui-pickers';
 
 import './cardFields.styles.css';
 
 const MovieDetails = (props) => {
     const [list, setList] = useState(props.list);
-    const [updatedDate, setUpdatedDate] = useState(Date.now());
-
     const handleListChange = (event) => {
         setList(event.target.value)
     }
+
+    const [updatedDate, setUpdatedDate] = useState(Date.now());
 
     return (
         <form>
@@ -30,7 +30,14 @@ const MovieDetails = (props) => {
                 </center>
             </Card>
             <Card className="movie-details updated-date-field">
-                
+                <InputLabel style={{marginRight: '20px'}} htmlFor="updated-date-picker">Updated Date</InputLabel>
+                <DatePicker
+                    id="updated-date-picker"
+                    style={{width: '75%'}}
+                    value={updatedDate}
+                    onChange={setUpdatedDate}
+                    format="MMM DD, YYYY"
+                />
             </Card>
         </form>
     );

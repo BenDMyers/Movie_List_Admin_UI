@@ -2,8 +2,10 @@ import React, {useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
+import MomentUtils from '@date-io/moment';
 import Grid from '@material-ui/core/Grid';
 import withWidth from '@material-ui/core/withWidth';
+import {MuiPickersUtilsProvider} from 'material-ui-pickers';
 
 import './editMovieButtons.styles.css';
 import {getMovies} from '../../actions/moviesActions';
@@ -35,10 +37,6 @@ const getStyle = (width) => {
     }
 };
 
-const createDetail = (movie, field) => {
-    return <MovieDetails {...movie} field={field} />;
-}
-
 const EditMovie = (props) => {
     console.log(props.movie)
     useEffect(() => {
@@ -55,9 +53,14 @@ const EditMovie = (props) => {
                 </Grid>
                 <Grid item xs={12} sm={8} md={8} style={{padding: '20px'}}>
                     <MovieDetailsTitleCard {...props.movie} />
-                    {props.movie.list && <MovieDetails {...props.movie} />}
+                    {props.movie.list && (
+                        <MuiPickersUtilsProvider utils={MomentUtils}>
+                            <MovieDetails {...props.movie} />
+                        </MuiPickersUtilsProvider>
+                    )}
                 </Grid>
             </Grid>
+
             <EditMovieActions movie={props.movie} />
         </>
     );
