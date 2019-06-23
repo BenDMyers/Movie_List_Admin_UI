@@ -1,0 +1,13 @@
+.edit-movie-button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.edit-movie-button button, button.edit-movie-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    width: 80px;
+}

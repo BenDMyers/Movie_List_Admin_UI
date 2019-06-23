@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {getMovies, TRIGGER_SORT} from './actions/moviesActions';
 import DarkModeToggle from './components/layout/DarkModeToggle';
 import HeadingBar from './components/layout/HeadingBar';
+import EditMovie from './components/EditMovie';
 import MovieList from './components/MovieList';
 
 class App extends Component {
@@ -26,7 +27,7 @@ class App extends Component {
                             <MovieList />
                         </Route>
                         <Route exact path="/edit/:movieId">
-                            <div>You're editing a movie!</div>
+                            <EditMovie />
                         </Route>
                     </Switch>
                 </div>

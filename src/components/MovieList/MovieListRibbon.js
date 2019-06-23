@@ -20,7 +20,7 @@ const RIBBON_OPTIONS = {
     }
 };
 
-const SearchResultItemRibbon = (props) => {
+const MovieItemRibbon = (props) => {
     const {color, text} = RIBBON_OPTIONS[props.list];
 
     return (
@@ -30,4 +30,4 @@ const SearchResultItemRibbon = (props) => {
     );
 };
 
-export default SearchResultItemRibbon;
+export default MovieItemRibbon;

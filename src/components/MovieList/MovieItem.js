@@ -46,12 +46,18 @@ const MovieItem = (props) => {
                         {props.year}
                     </div>
                 </CardContent>
-                <CardActions style={cardActionsStyles}>
-                    <EditButton movie={props._id} />
-                </CardActions>
+                {props.showEditButton && (
+                    <CardActions style={cardActionsStyles}>
+                        <EditButton movie={props._id} />
+                    </CardActions>
+                )}
             </Card>
         </div>
     );
 };
+
+MovieItem.defaultProps = {
+    showEditButton: true
+}
 
 export default MovieItem;
