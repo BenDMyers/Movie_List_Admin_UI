@@ -1,6 +1,6 @@
 {
-  "short_name": "Ben's Movie List",
-  "name": "What Should Ben Watch Next?",
+  "short_name": "Movie List Admin",
+  "name": "Movie List Admin",
   "icons": [
       {
           "src": "/android-chrome-192x192.png",
