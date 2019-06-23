@@ -31,7 +31,7 @@ const EditMovie = (props) => {
                     <MovieItem {...props.movie} showEditButton={false} />
                 </Grid>
             </Grid>
-            <EditMovieActions />
+            <EditMovieActions movie={props.movie} />
         </div>
     );
 };
