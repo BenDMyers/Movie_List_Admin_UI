@@ -2,7 +2,7 @@ div.search-result-poster-container {
     display: inline-flex;
 }
 
-div.ui.ribbon.label.search-result-ribbon {
+div.ui.ribbon.label.movie-item-ribbon {
     position: absolute;
     top: 20px;
     left: calc(100% + 1.2em);
@@ -11,26 +11,26 @@ div.ui.ribbon.label.search-result-ribbon {
     font-family: 'Montserrat', sans-serif;
 }
 
-div.ui.ribbon.label.search-result-ribbon.blue {
+div.ui.ribbon.label.movie-item-ribbon.blue {
     background-color: #3f51b5 !important;
 }
 
-div.ui.ribbon.label.search-result-ribbon.blue::after {
+div.ui.ribbon.label.movie-item-ribbon.blue::after {
     border-top-color: #213397 !important;
 }
 
-div.ui.ribbon.label.search-result-ribbon.green {
+div.ui.ribbon.label.movie-item-ribbon.green {
     background-color: #008000 !important;
 }
 
-div.ui.ribbon.label.search-result-ribbon.green::after {
+div.ui.ribbon.label.movie-item-ribbon.green::after {
     border-top-color: #006200 !important;
 }
 
-div.ui.ribbon.label.search-result-ribbon.purple {
+div.ui.ribbon.label.movie-item-ribbon.purple {
     background-color: #9400d3 !important;
 }
 
-div.ui.ribbon.label.search-result-ribbon.purple::after {
+div.ui.ribbon.label.movie-item-ribbon.purple::after {
     border-top-color: #7600b5 !important;
 }

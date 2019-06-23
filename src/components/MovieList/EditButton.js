@@ -14,7 +14,7 @@ const EditButton = (props) => {
     let buttonProps = {variant: 'contained', color: 'primary', onClick: handleClick};
 
     return (
-        <Button as='div' labelPosition="right" className="vote-button">
+        <Button as='div' className="edit-button">
             <MaterialButton {...buttonProps}>
                 Edit
             </MaterialButton>

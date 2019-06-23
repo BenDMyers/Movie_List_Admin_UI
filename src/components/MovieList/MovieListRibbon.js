@@ -24,7 +24,7 @@ const SearchResultItemRibbon = (props) => {
     const {color, text} = RIBBON_OPTIONS[props.list];
 
     return (
-        <Label className="search-result-ribbon" color={color} ribbon="right">
+        <Label className="movie-item-ribbon" color={color} ribbon="right">
             {text}
         </Label>
     );
